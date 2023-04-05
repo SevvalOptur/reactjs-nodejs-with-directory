@@ -1,0 +1,77 @@
+connect bağlantısında kimlik doğrulama hatası yaşanıyorsa mysql yerine mysql2 paketi kullanılacak.
+
+    ////table oluşturma
+    // var sorgu = "CREATE DATABASE ilkProje";
+    ///table sutün
+    //var sogu = "CREATE TABLE login (id INT AUTO_INCREMENT PRIMARY KEY, name VARCHAR(30))"
+    ///table silme
+    //var sogu = "DROP TABLE login (name VARCHAR(30))"
+    ///veri ekleme
+    //INSERT INTO log (name) values ('sevval)
+    ///tablo veri çekme
+    //SELECT * FROM login
+    
+
+
+    express js, dotenv, nodemon, bcryptjs
+
+
+
+
+
+    const express = require('express')
+const router = express.Router();
+const pool = require("../../connect/database.js")
+
+// const  createUser  = require("./user.controller")
+
+// router.post("/api/users",createUser.getAll)
+
+router.post("/users",(req,res,next) => {
+    let product = req.body;
+    query = "insert into registration(name, email, number, password) values(?,?,?,?)";
+    pool.query(query,[product.name, product.email, product.number, product.password],(err,results)=>{
+        if(!err){
+            return res.status(200).json({message: "product added succesfully"});
+        }
+        else
+        return res.status(500).json(err);
+    })
+})
+  
+
+// router.post("/api/users",createUser.getAll)
+
+// router.get("/api/users", (req, res) => {
+//     res.json({message: "deneme mesajı"})
+// });
+module.exports = router;
+
+
+
+// router.post("/", createUser);
+// router.get('/', createUser
+//      res.send('merhaba')
+// );
+// router.post('/', function (req, res) {
+//     res.send('Merhaba Express');
+//   });
+
+//   router.post('/', (req, res) => {
+//     res.send('POST request to the homepage')
+//   })
+  
+// router.get("/", (req, res) => {
+//     res.json({message: "deneme mesajı"})
+// });
+
+
+
+
+
+<button
+ 	onClick={event => {
+		func1();
+		func2();
+	}}>Click
+</button>
